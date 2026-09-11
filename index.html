@@ -684,5 +684,37 @@
 </main>
 
 <script src="script/script.js"></script>
+<script>
+document.getElementById("portfolioBtn").addEventListener("click", async function (e) {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("images/portfolio.pdf");
+
+    if (!response.ok) {
+      throw new Error("PDF could not be loaded");
+    }
+
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+
+    const downloadLink = document.createElement("a");
+    downloadLink.href = url;
+    downloadLink.download = "portfolio.pdf";
+
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    downloadLink.remove();
+
+    URL.revokeObjectURL(url);
+
+  } catch (error) {
+    console.error("Download failed:", error);
+
+    // Fallback: open the PDF
+    window.open("images/portfolio.pdf", "_blank");
+  }
+});
+</script>
 </body>
 </html>
