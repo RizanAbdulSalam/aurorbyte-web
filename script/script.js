@@ -67,13 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---- portfolio download placeholder ---- */
-  const portfolioBtn = document.getElementById('portfolioBtn');
-  if (portfolioBtn) {
-    portfolioBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Add your portfolio PDF and link it from this button — see the README note in the project files.');
-    });
-  }
+ 
 
   /* ---- product showcase slider ---- */
   const track = document.getElementById('showcaseTrack');
